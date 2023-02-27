@@ -1,11 +1,17 @@
-const path = require("path");
-const webpack = require("webpack");
-const CopyWebpackPlugin = require("copy-webpack-plugin");
-const MiniCssExtractPlugin = require("mini-css-extract-plugin");
-const ImageMinimizerPlugin = require("image-minimizer-webpack-plugin");
-const TerserPlugin = require("terser-webpack-plugin");
+import path from "path";
+import webpack from "webpack";
+import CopyWebpackPlugin from "copy-webpack-plugin";
+import MiniCssExtractPlugin from "mini-css-extract-plugin";
+import ImageMinimizerPlugin from "image-minimizer-webpack-plugin";
+import TerserPlugin from "terser-webpack-plugin";
 
 const IS_DEVELOPMENT = process.env.NODE_ENV;
+
+import { fileURLToPath } from "url";
+
+const __filename = fileURLToPath(import.meta.url);
+
+const __dirname = path.dirname(__filename);
 
 const dirApp = path.join(__dirname, "app");
 const dirImages = path.join(__dirname, "images");
@@ -13,7 +19,7 @@ const dirShared = path.join(__dirname, "shared");
 const dirStyles = path.join(__dirname, "styles");
 const dirNodes = "node_modules";
 
-module.exports = {
+export const config = {
   entry: [path.join(dirApp, "index.js"), path.join(dirStyles, "index.scss")],
   resolve: {
     modules: [dirApp, dirImages, dirShared, dirStyles, dirNodes],
