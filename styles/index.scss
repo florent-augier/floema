@@ -1,7 +1,21 @@
-.rooteu {
-  color: #fff;
-}
+@import "utils/variables";
+@import "utils/vendors";
+@import "utils/functions";
+@import "utils/mixins";
 
-#rata {
-  color: red;
-}
+@import "base/fonts";
+@import "base/reset";
+@import "base/base";
+
+@import "pages/about/about";
+@import "pages/about/content";
+@import "pages/about/gallery";
+@import "pages/about/highlight";
+
+@import "pages/collections/collections";
+
+@import "components/preloader";
+
+@import "pages/detail/detail";
+
+@import "pages/home/home";

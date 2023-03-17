@@ -4,8 +4,9 @@ import CopyWebpackPlugin from "copy-webpack-plugin";
 import MiniCssExtractPlugin from "mini-css-extract-plugin";
 import ImageMinimizerPlugin from "image-minimizer-webpack-plugin";
 import TerserPlugin from "terser-webpack-plugin";
+import { CleanWebpackPlugin } from "clean-webpack-plugin";
 
-const IS_DEVELOPMENT = process.env.NODE_ENV;
+const IS_DEVELOPMENT = process.env.NODE_ENV === "dev";
 
 import { fileURLToPath } from "url";
 
@@ -35,6 +36,7 @@ export const config = {
       filename: "[name].css",
       chunkFilename: "[id].css",
     }),
+    new CleanWebpackPlugin(),
   ],
   module: {
     rules: [
@@ -60,19 +62,34 @@ export const config = {
             loader: "postcss-loader",
           },
           {
+            loader: "resolve-url-loader",
+          },
+          {
             loader: "sass-loader",
+            options: {
+              sourceMap: true,
+            },
           },
         ],
       },
       {
-        test: /\.(jpe?g|png|gif|svg|woff2?|fnt|webp)$/,
-        loader: "file-loader",
-        options: {
-          outputPath: "images",
-          name(file) {
-            return "[hash].[emoji].[ext]";
+        test: /\.(woff|woff2|eot|ttf|otf)$/i,
+        type: "asset/resource",
+      },
+
+      {
+        test: /\.(jpe?g|png|gif|svg|webp)$/i,
+        use: [
+          {
+            loader: ImageMinimizerPlugin.loader,
+            options: {
+              severityError: "warning",
+              minimizerOptions: {
+                plugins: ["gifsicle"],
+              },
+            },
           },
-        },
+        ],
       },
       {
         test: /\.(glsl|frag|vert)$/,

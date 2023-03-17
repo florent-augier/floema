@@ -34,6 +34,7 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(methodOverride());
 app.use(logger("dev"));
+// app.use();
 
 app.use((req, res, next) => {
   res.locals.ctx = {
@@ -58,6 +59,8 @@ app.use((req, res, next) => {
 
 app.set("views", path.join(__dirname, "views"));
 app.set("view engine", "pug");
+
+app.use(express.static(path.join(__dirname, "./public")));
 
 const handleRequest = async (client) => {
   const meta = await client.getSingle("meta");
