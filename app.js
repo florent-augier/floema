@@ -78,6 +78,8 @@ app.get("/", async (req, res) => {
   const defaults = await handleRequest(client);
   const home = await client.getSingle("home");
 
+  console.log(defaults.preloader);
+
   const navigation = await client.getSingle("navigation");
 
   console.log("navigation", navigation.data.list);

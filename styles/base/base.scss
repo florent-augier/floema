@@ -1,5 +1,28 @@
+*,
+*:before,
+*:after {
+  box-sizing: border-box;
+}
+
+html {
+  font-size: calc(100vw / 1920 * 10);
+}
+
 body {
-  font-family: $font-suisse-intl !important;
-  font-size: 16px;
-  font-weight: 300;
+  @extend %description-16 !optional;
+  font-family: $font-suisse-intl;
+
+  @include media("<=phone") {
+    font-size: 100px;
+  }
+}
+
+a {
+  color: inherit;
+  outline: none;
+  text-decoration: none;
+}
+
+img {
+  vertical-align: middle;
 }

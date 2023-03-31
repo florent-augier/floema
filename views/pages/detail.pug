@@ -16,17 +16,17 @@ block content
                 .detail__information__content
                     .detail__information__highlights
                         each highlight in product.data.highlights
-                            p.detail__information__highlightt
+                            p.detail__information__highlight
                                 svg.detail__information__highlight__icon
                                     use(href="sprite-" + highlight.highlights_icon.toLowerCase())
 
-                                span.detail__information__highlight__text=highlight.highlights_text
+                                span.detail__information__highlight__text!=highlight.highlights_text.replace(/\n/, '<br>')
 
-                .detail__information__list
-                    each item in product.data.informations
-                        p.detail__information__item
-                            strong.detail__information__item__title=item.informations_label
-                            span.detail__information__item__description=item.informations_description
+                    .detail__information__list
+                        each item in product.data.informations
+                            p.detail__information__item
+                                strong.detail__information__item__title=item.informations_label
+                                span.detail__information__item__description=item.informations_description
+                        a.detail__information__link(href=product.data.link_url.url target="_blank")=product.data.link_text
 
 
-                a.detail__information__link(href=product.data.link_url.url target="_blank")=product.data.link_text

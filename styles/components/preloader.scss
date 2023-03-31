@@ -1,8 +1,22 @@
 .preloader {
-  font-family: "Clash Display";
-  color: red;
+  @extend %cover;
+  @extend %center;
+
+  background: $color-contessa;
+  color: $color-quarter-spanish-white;
+
+  display: none;
 }
 .preloader__text {
+  @extend %title-43;
+
+  max-width: 66rem;
 }
 .preloader__number {
+  @extend %description-14;
+
+  position: absolute;
+  bottom: 7.3rem;
+  left: 50%;
+  transform: translateX(-50%);
 }

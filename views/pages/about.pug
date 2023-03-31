@@ -33,11 +33,11 @@ block content
                             if section.primary.label
                                 p.about__highlight__label=section.primary.label
 
-                    h3.about__highlight__title=section.primary.title
+                        h3.about__highlight__title=section.primary.title
 
-                    each media in section.items
-                        figure.about__highlight__media
-                            img.about__highlight__media__image(src=media.image.url, alt=media.image.alt)
+                        each media in section.items
+                            figure.about__highlight__media
+                                img.about__highlight__media__image(src=media.image.url, alt=media.image.alt)
 
 
                 if section.slice_type == "gallery"
