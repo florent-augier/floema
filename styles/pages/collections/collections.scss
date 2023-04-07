@@ -10,23 +10,19 @@
   overflow: hidden;
 }
 .collections__titles {
-  align-items: center;
-  display: flex;
-  position: absolute;
-  left: 50%;
-  top: 50%;
-  transform: translate(-50%, -50%) rotate(-90deg);
-}
-.collection__titles__label {
-  @extend %description-12;
+  @extend %vertical-titles;
 
-  letter-spacing: 0.1rem;
-  margin: 0 3rem;
-  text-transform: uppercase;
-  text-align: center;
-  transform: rotate(90deg);
+  @include media("<phone") {
+    display: none;
+  }
 }
-.collection__titles__title {
+.collections__titles__label {
+  @extend %vertical-titles__label;
+
+  @extend %description-12;
+}
+.collections__titles__title {
+  @extend %vertical-titles__title;
   @extend %title-200;
 
   padding-top: 2rem;
@@ -45,7 +41,7 @@
   display: block;
   margin: 0 5.3rem;
 }
-.collection__gallery__media {
+.collections__gallery__media {
   height: 63.1rem;
   width: 44.7rem;
   position: relative;
@@ -55,13 +51,19 @@
 
   object-fit: cover;
 }
-.collection__content {
+.collections__content {
   @extend %cover;
+
+  @include media("<phone") {
+    display: none;
+  }
 }
 .collections__article {
   bottom: 8rem;
   left: 8rem;
+  //warning
   opacity: 0;
+  //warning
   position: absolute;
 
   &--active {
@@ -75,4 +77,23 @@
   @extend %description-16;
 
   max-width: 44rem;
+}
+
+.collections__mobile {
+  display: flex;
+  position: absolute;
+  bottom: 5rem;
+}
+.collections__mobile__item {
+  padding-left: 5rem;
+  width: 100vw;
+}
+.collections__mobile__item__label {
+  font-size: 2rem;
+  letter-spacing: 0.1rem;
+  text-transform: uppercase;
+}
+.collections__mobile__item__title {
+  font-size: 12rem;
+  font-family: $font-george-x;
 }
