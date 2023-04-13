@@ -41,9 +41,12 @@ export const config = {
   module: {
     rules: [
       {
-        test: /\.js$/,
+        test: /\.m?js$/,
         use: {
           loader: "babel-loader",
+        },
+        resolve: {
+          fullySpecified: false,
         },
       },
       {

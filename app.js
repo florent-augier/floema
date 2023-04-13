@@ -9,7 +9,6 @@ import methodOverride from "method-override";
 import { createRequire } from "module";
 const require = createRequire(import.meta.url);
 
-// const express = require("express");
 const app = express();
 import path from "path";
 import { fileURLToPath } from "url";
@@ -34,7 +33,6 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(methodOverride());
 app.use(logger("dev"));
-// app.use();
 
 app.use((req, res, next) => {
   res.locals.ctx = {
