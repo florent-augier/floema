@@ -7,6 +7,7 @@ export default class Detail extends Page {
 
       element: ".detail",
       elements: {
+        navigation: document.querySelector(".navigation"),
         title: ".detail__title",
       },
     });

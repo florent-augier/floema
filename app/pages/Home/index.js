@@ -8,8 +8,16 @@ export default class Home extends Page {
       element: ".home",
       elements: {
         navigation: document.querySelector(".navigation"),
-        title: ".home__title",
+        link: ".home__link",
       },
     });
   }
+
+  // create() {
+  //   super.create();
+
+  //   this.elements.link.addEventListener("click", (_) =>
+  //     console.log("You clicked on link")
+  //   );
+  // }
 }

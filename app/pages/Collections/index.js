@@ -7,6 +7,7 @@ export default class Collections extends Page {
 
       element: ".collections",
       elements: {
+        navigation: document.querySelector(".navigation"),
         title: ".collections__title",
       },
     });
